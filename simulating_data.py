@@ -252,82 +252,7 @@ def distances_time_1(key,suppliers, depots, oldhubs, newhubs):
         times.append(timei)
     return distances, times
 
-def calculate_times(p,row,all_indexes,sup_and_dept_indexes,edges):
-    times=[]
-    for i in range(len(sup_and_dept_indexes)):
-       # print(i,row)
-        if i==row:
-            paths=p.shortest_paths([sup_and_dept_indexes[row] for x in range(len(all_indexes))],all_indexes)
-            time_for_paths=[]     
-            for j in range(len(paths)):
-                time=[int(edges.loc[int(paths[j][k]),int(paths[j][k+1])]["length"])/int(edges.loc[int(paths[j][k]),int(paths[j][k+1])]["speed"]) 
-                if int(paths[j][k]) in edges.index.levels[0] and int(paths[j][k+1]) in edges.loc[int(paths[j][k])].index
-                else int(edges.loc[int(paths[j][k+1]),int(paths[j][k])]["length"])/int(edges.loc[int(paths[j][k+1]),int(paths[j][k])]["speed"]) 
-                for k in range(len(paths[j])-1)]
-                time_for_paths.append(sum(time))
-        else:
-            time_for_paths=[0 for i in all_indexes]
-        times.append(time_for_paths)
-    print(row)
-    return np.array(times)
 
-def distances_time_2_parallel(ids,edges,suppliers, depots, oldhubs, newhubs):
-    all_indexes=[]
-    sup_and_dept_indexes=[]
-    ids.set_index('id', inplace= True)
-    p=pandana.network.Network(ids["latitude"], ids["longitude"], edges["id1"], edges["id2"], edges[["length"]]) 
-    edges.set_index(["id1","id2"], inplace= True)
-    for i in suppliers:
-        all_indexes.append(i["index"])
-        sup_and_dept_indexes.append(i["index"])
-    for i in depots:
-        all_indexes.append(i["index"])
-        sup_and_dept_indexes.append(i["index"])
-    for i in oldhubs:
-        all_indexes.append(i["index"])
-    for i in newhubs:
-        all_indexes.append(i["index"])  
-    distances=[]
-    for i in sup_and_dept_indexes:
-        distances.append(p.shortest_path_lengths([i for x in range(len(all_indexes))],all_indexes))
-    with parallel_backend('threading', n_jobs=12):    
-        results=Parallel(n_jobs=14)(delayed(calculate_times)(p,i,all_indexes,sup_and_dept_indexes,edges) for i in range(len(sup_and_dept_indexes)))
-    times=sum(results)
-    times=times.tolist()
-    return distances, times
-
-
-def distances_time_2_quick(ids,edges,suppliers, depots, oldhubs, newhubs):
-    all_indexes=[]
-    sup_and_dept_indexes=[]
-    ids.set_index('id', inplace= True)
-    p=pandana.network.Network(ids["latitude"], ids["longitude"], edges["id1"], edges["id2"], edges[["length"]]) 
-    edges.set_index(["id1","id2"], inplace= True)
-    for i in suppliers:
-        all_indexes.append(i["index"])
-        sup_and_dept_indexes.append(i["index"])
-    for i in depots:
-        all_indexes.append(i["index"])
-        sup_and_dept_indexes.append(i["index"])
-    for i in oldhubs:
-        all_indexes.append(i["index"])
-    for i in newhubs:
-        all_indexes.append(i["index"])  
-    distances=[]
-    for i in sup_and_dept_indexes:
-        distances.append(p.shortest_path_lengths([i for x in range(len(all_indexes))],all_indexes))
-    times=[]
-    for i in sup_and_dept_indexes:
-        paths=p.shortest_paths([i for x in range(len(all_indexes))],all_indexes)
-        time_for_paths=[]     
-        for j in range(len(paths)):
-            time=[int(edges.loc[int(paths[j][k]),int(paths[j][k+1])]["length"])/int(edges.loc[int(paths[j][k]),int(paths[j][k+1])]["speed"]) 
-            if int(paths[j][k]) in edges.index.levels[0] and int(paths[j][k+1]) in edges.loc[int(paths[j][k])].index
-            else int(edges.loc[int(paths[j][k+1]),int(paths[j][k])]["length"])/int(edges.loc[int(paths[j][k+1]),int(paths[j][k])]["speed"]) 
-            for k in range(len(paths[j])-1)]
-            time_for_paths.append(sum(time))
-        times.append(time_for_paths)
-    return distances, times
 
 def distances_time_2(ids,edges,suppliers, depots, oldhubs, newhubs):
     all_indexes=[]
@@ -349,21 +274,13 @@ def distances_time_2(ids,edges,suppliers, depots, oldhubs, newhubs):
     for i in sup_and_dept_indexes:
         distances.append(p.shortest_path_lengths([i for x in range(len(all_indexes))],all_indexes))
     times=[]
-    for i in sup_and_dept_indexes:
-        paths=p.shortest_paths([i for x in range(len(all_indexes))],all_indexes)
-        time_for_paths=[]     
-        for j in range(len(paths)):
-            time=0
-            print(paths[j])
-            for k in range(len(paths[j])-1):
-                print(paths[j][k],paths[j][k+1])
-                try:
-                    time+=int(edges.loc[int(paths[j][k]),int(paths[j][k+1])]["length"])/int(edges.loc[int(paths[j][k]),int(paths[j][k+1])]["speed"])
-                except:
-                    time+=int(edges.loc[int(paths[j][k+1]),int(paths[j][k])]["length"])/int(edges.loc[int(paths[j][k+1]),int(paths[j][k])]["speed"])
-            time_for_paths.append(time)
-        times.append(time_for_paths)
+    for i in range(len(sup_and_dept_indexes)):
+        times_row=[]
+        for j in range(len(all_indexes)):
+            times_row.append(distances[i][j]/random.randint(30, 60))
+        times.append(times_row)
     return distances, times
+
 
 #creates instance
 #instype: type 1- demand and sup cap type 1 and vehicle type 1
@@ -388,7 +305,7 @@ def instance_generation(seed, osm_file, sup_range, dep_range, oh_range, nh_range
     if distype==1:
         dt=distances_time_1(key, suppliers, depots, oldhubs, newhubs)
     if distype==2:
-        dt=distances_time_2_parallel(ids,edges,suppliers, depots, oldhubs, newhubs)
+        dt=distances_time_2(ids,edges,suppliers, depots, oldhubs, newhubs)
     if instype==1:
         instance = {
             "instance": [{"suppliers": suppliers,
@@ -434,14 +351,9 @@ def instance_generation(seed, osm_file, sup_range, dep_range, oh_range, nh_range
     return instance
 
 
-def generating_multiple(num_of, seed,sup_range, dep_range, oh_range, nh_range, pt_range, vt_range):
+def generating_multiple(num_of, seed,sup_range, dep_range, oh_range, nh_range, pt_range, vt_range,ins_types,dist_types,osm_file,key=""):
     random.seed(seed)
     for i in list(range(num_of)):
-        with open("biginstance"+str(i+2)+".json", "w") as write:
-            json.dump(instance_generation(random.random()*100,"//home/hammr/luna/OsmToRoadGraph/data/england-latest.pycgr",
-                      [sup_range[0],sup_range[1]], [dep_range[0],dep_range[1]], [oh_range[0], oh_range[1]], [nh_range[0], nh_range[1]], [pt_range[0], pt_range[1]], [vt_range[0], vt_range[1]],3,2), write)
-
-#generating_multiple(1,466,[200,201],[6,9],[5,10],[40,65],[1,2],[3,6])
-#instance_generation(466, "//luna/OsmToRoadGraph/data/england-latest.pycgr", [1,2],[1,2],[5,10],[40,65],[1,2],[3,6],3, 2)
-#"//home/hammr/luna/OsmToRoadGraph/data/england-latest.pycgr"
-#"AIzaSyA65DIGKLdC8dRqhRYjwwZvLgHm2cRTqfY"
+        with open("biginstance"+str(i+3)+".json", "w") as write:
+            json.dump(instance_generation(random.random()*100,osm_file,
+                      [sup_range[0],sup_range[1]], [dep_range[0],dep_range[1]], [oh_range[0], oh_range[1]], [nh_range[0], nh_range[1]], [pt_range[0], pt_range[1]], [vt_range[0], vt_range[1]],ins_types,dist_types), write)
