@@ -21,4 +21,13 @@ Distype
 Key: API key needed for distype 1. If using distype 2 can be left blank.
     
     generating_multiple(num_of,seed,sup_range,dep_range, oh_range,nh_range, pt_range,vt_range,ins_types,dist_types,osm_file,key="")
-generates num_of different instances with same stated characteristics.
+generates num_of different instances with same stated characteristics and saves them into json files.
+
+## problem_class.py-
+This file defines the Problem class. To read a instance file into a problem class you must run the following code:
+
+"""python
+prob=Problem(file_name)
+prob.read_problem_instance()
+"""
+
