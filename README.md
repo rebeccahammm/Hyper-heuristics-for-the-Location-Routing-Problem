@@ -2,6 +2,7 @@
 We provide code for using selection hyperheuristics to solve a 2-echalon Location-Routing problem with different hubs. Please cite the following papers if you used any of these resources:
 
 ##simulating_data.py- 
+
 This file is used to simulate instances of this specific Location-routing problem.
     Uses OSM data which can be found here: converted to a pygerc file
     
@@ -12,7 +13,7 @@ Instype
 - if equal 1: creates instances where demands are less then supplier capacities and vehicle capcity chosen from 3 options
 - if equal 2: creates instances where demands are less then supplier capacities and vehicle capcity chosen from intergers in range
 - if equal 3: creates instances where supplier capacities are less then demands and vehicle capcity chosen from intergers in range
-- 
+
 Distype 
 - if equal 1: calculates distances and times using google directions api. API key needed: url for googlse api
 -if equal 2: calculates distances using pandana package. pandana will need to be installed first. Times estimated as factor of time with randomised speed.
