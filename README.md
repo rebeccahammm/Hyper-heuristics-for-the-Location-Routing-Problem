@@ -4,7 +4,9 @@ We provide code for using selection hyperheuristics to solve a 2-echalon Locatio
 ## simulating_data.py- 
 
 This file is used to simulate instances of this specific Location-routing problem.
-    Uses OSM data which can be found here: converted to a pygerc file
+    Uses OSM data which can be found here: https://download.geofabrik.de/ convert to a pygerc file using https://github.com/AndGem/OsmToRoadGraph. To generate instances we can use the following functions:
+    
+    
     
     instance_generation(seed,osm_file, sup_range,dep_range, oh_range,nh_range, pt_range,vt_range,instype,distype,key="") 
     
@@ -50,7 +52,7 @@ This prints the routes taken, hubs opened, Objective Value, Total infeasibility 
  This file contains Low-Level heuristics used within the hyper-heuristics.
 
 ## heuristic.py-
-This file include both intial solution methods:
+This file includes both intial solution methods:
     
     initial_solution_random(problem,solution)
     initial_solution_greedy_depot_allocation(problem,solution)
@@ -62,6 +64,12 @@ As well as a simpler test heuristic I haved used to estimate optimal values:
 and a way to plot solutions:
 
     plot(p,s,t,sol)
+    
+where 
+-p is the problem class
+-s is routes
+-t is the title of the plot
+-sol is the solution class
  
  ## testingmethods.py-
   This file is used to test all methods.
@@ -91,10 +99,41 @@ Where the function is one of the below without brackets and file is where result
     testingmethods_ADSH_R(function,file.p,[max_new_hubs,min_throughput,max_time,[instance_files],[estimated_instance_optimal_values])
     
  ## comparing_methods.py
- This file compares results of the different hyperheuristics.
+ This file compares results of the different hyperheuristics. 
+ 
+    comparison(methods)
+    
+ given a list of results from different methods this functuion returns results from comparing results. For each method stating how many functions it is significantly better than, better than, equal to, worse than, significantly worse than.
  
  ## evaulatingmethods.py
- This file runs methods on instances but this time only 10 times but with 10 times the number of iterations. This was use to anyalase methods:
+ This file runs methods on instances but this time only 10 times but with 10 times the number of iterations on two selected methods. This was use to anyalase methods:
+    
+    Runall(no_processes,ListOfFunctions)
+    
+ Runs functions in parellel.
+ example of use:
  
+    List=[(testingmethods_B,"Anaylis_of_random_ADSHRR_ins_5.p",[2,8,28800,["biginstance3.json"]]),(testingmethods_c,"Anaylis_of_greedy_SHRR_ins_5.p",[2,8,28800,["biginstance3.json"]])]
+    Runall(len(List),List)
+    
  ## evaluationgonemethod.py
- This file creates graphs used for analyazing 
+ This file creates graphs used for analyazing LLH used and process of finding a solution for algorithmims. To use functions may have to redefine dictionary of results. For example Instance 0 results maybe saved in [0] of the dictionary so we redefine dictionary the following way:
+    
+    ins0method1=insomethod[0]
+      
+                                    
+    graph(results,ins)
+ creates a graph from results of one method and instance that shows the average objective function of the 10 runs at each iteration. ins provided is just the instance number to use for the title
+
+    obj_infe_graph(method1,start, pathlength)
+creates two graphs one showing average objective value at each iteration and one showing the average infeasibility at each iteration. method1 is the results we are using. The graph shows interations start to pathlength
+
+    llh_sequence_combined_multi_ins(results,method)
+ create a graph showing percentage of LLH use for all instances with sequence of instances combined in one catergory. results is a list of results for the instances and method is the method used 1 is ADSH and 2 is SH
+ 
+    llh_eachchoice_multi_ins(results,method,percent)
+creates a graph showing percentage of LLH use for all instances. results is a list of results for the instances, method is the method used 1 is ADSH and 2 is SH and percent is the threshold for which if LLHs are under they and combined together in a other catergory
+
+    llh_eachindiv_multi_ins(results,method,percent)
+creates a graph showing percentage of LLH use within sequences for all instances. results is a list of results for the instances, method is the method used 1 is ADSH and 2 is SH and percent is the threshold for which if LLHs are under they and combined together in a other catergory
+
