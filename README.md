@@ -4,21 +4,27 @@ We provide code for using selection hyperheuristics to solve a 2-echalon Locatio
 ## simulating_data.py- 
 
 This file is used to simulate instances of this specific Location-routing problem.
-    Uses OSM data which can be found here: https://download.geofabrik.de/ convert to a pygerc file using https://github.com/AndGem/OsmToRoadGraph. To generate instances we can use the following functions:
+    Uses OSM data which can be found here: https://download.geofabrik.de/ and convert to a pygerc file using https://github.com/AndGem/OsmToRoadGraph. To generate instances we can use the following functions:
     
     
     
     instance_generation(seed,osm_file, sup_range,dep_range, oh_range,nh_range, pt_range,vt_range,instype,distype,key="") 
     
-generates one instance with given ranges for size.
+generates one instance with given ranges for size. Ranges are given in list format. 
+-sup_range= number of supplier range
+-dep_range= number of depot range
+-oh_range= number of old hub range
+-nh_range= number of new hub range
+-pt_range= number of product type range
+-vt_range= number of vehicle type range
 Instype 
 - if equal 1: creates instances where demands are less then supplier capacities and vehicle capcity chosen from 3 options
 - if equal 2: creates instances where demands are less then supplier capacities and vehicle capcity chosen from intergers in range
 - if equal 3: creates instances where supplier capacities are less then demands and vehicle capcity chosen from intergers in range
 
 Distype 
-- if equal 1: calculates distances and times using google directions api. API key needed: url for googlse api
--if equal 2: calculates distances using pandana package. pandana will need to be installed first. Times estimated as factor of time with randomised speed.
+- if equal 1: calculates distances and times using google directions api. API key needed: (https://developers.google.com/maps/documentation/directions) 
+- if equal 2: calculates distances using pandana package. pandana will need to be installed first. Times estimated as factor of time with randomised speed.
 
 Key: API key needed for distype 1. If using distype 2 can be left blank.
     
@@ -46,7 +52,7 @@ This prints the objective function
 This prints a value indicating the infeasibility of a solution
 
     sol.printSolution()
-This prints the routes taken, hubs opened, Objective Value, Total infeasibility and individual constraint violations of a solution.
+This prints the routes taken, hubs opened, objective value, total infeasibility and individual constraint violations of a solution.
 
 ## heuristic_methods.py-
  This file contains Low-Level heuristics used within the hyper-heuristics.
@@ -55,7 +61,10 @@ This prints the routes taken, hubs opened, Objective Value, Total infeasibility 
 This file includes both intial solution methods:
     
     initial_solution_random(problem,solution)
+produces a random initial solution
+
     initial_solution_greedy_depot_allocation(problem,solution)
+produces a greedy initial solution
     
 As well as a simpler test heuristic I haved used to estimate optimal values:
 
@@ -103,7 +112,7 @@ Where the function is one of the below without brackets and file is where result
  
     comparison(methods)
     
- given a list of results from different methods this functuion returns results from comparing results. For each method stating how many functions it is significantly better than, better than, equal to, worse than, significantly worse than.
+ given a list of results from different methods this function returns results from comparing results. For each method it states how many functions it is significantly better than, better than, equal to, worse than, significantly worse than.
  
  ## evaulatingmethods.py
  This file runs methods on instances but this time only 10 times but with 10 times the number of iterations on two selected methods. This was use to anyalase methods:
@@ -123,10 +132,10 @@ Where the function is one of the below without brackets and file is where result
       
                                     
     graph(results,ins)
- creates a graph from results of one method and instance that shows the average objective function of the 10 runs at each iteration. ins provided is just the instance number to use for the title
+ creates a graph from results of one method and instance that shows the average objective function of the 10 runs at each iteration. ins provided is just the instance number to use for the title.
 
     obj_infe_graph(method1,start, pathlength)
-creates two graphs one showing average objective value at each iteration and one showing the average infeasibility at each iteration. method1 is the results we are using. The graph shows interations start to pathlength
+creates two graphs one showing average objective value at each iteration and one showing the average infeasibility at each iteration. method1 is the results we are using. The graph shows interations _start_ to _pathlength_.
 
     llh_sequence_combined_multi_ins(results,method)
  create a graph showing percentage of LLH use for all instances with sequence of instances combined in one catergory. results is a list of results for the instances and method is the method used 1 is ADSH and 2 is SH
