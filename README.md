@@ -3,56 +3,59 @@ We provide the instances used from the problem described here: In production.
 
 ## Instance 1
 Instance description:
--No. Suppliers: 3
--No. Depots: 5
--No. Old Hubs: 1
--No. New Hubs: 1
--No. Vehicle Types: 1
+- No. Suppliers: 3
+- No. Depots: 5
+- No. Old Hubs: 1
+- No. New Hubs: 1
+- No. Vehicle Types: 1
+
 Optimal Objective Value: 159.7
-![Ins1](https://github.com/rebeccahammm/Selection-Hyper-heuristics-for-Solving-the-Location-Routing-Problem-with-Different-Hubs/repository/Ins1solution.png   "Employee Data title")
+
+![Ins1](Ins1solution.png   "Employee Data title")
 ## Instance 2
 Instance description:
--No. Suppliers: 5
--No. Depots: 3
--No. Old Hubs: 1
--No. New Hubs: 2
--No. Vehicle Types: 1
+- No. Suppliers: 5
+- No. Depots: 3
+- No. Old Hubs: 1
+- No. New Hubs: 2
+- No. Vehicle Types: 1
+
 Optimal Objective Value: 103.1
 
 ## Instance 3
 Instance description:
--No. Suppliers: 6
--No. Depots: 34
--No. Old Hubs: 17
--No. New Hubs: 15
--No. Vehicle Types: 1
+- No. Suppliers: 6
+- No. Depots: 34
+- No. Old Hubs: 17
+- No. New Hubs: 15
+- No. Vehicle Types: 1
 Optimal Objective Value: 73.7
 
 ## Instance 4
 Instance description:
--No. Suppliers: 56
--No. Depots: 54
--No. Old Hubs: 53
--No. New Hubs: 57
--No. Vehicle Types: 1
+- No. Suppliers: 56
+- No. Depots: 54
+- No. Old Hubs: 53
+- No. New Hubs: 57
+- No. Vehicle Types: 1
 Optimal Objective Value: 159.7
 
 ## Instance 2
 Instance description:
--No. Suppliers: 6
--No. Depots: 20
--No. Old Hubs: 5
--No. New Hubs: 50
--No. Vehicle Types: 4
+- No. Suppliers: 6
+- No. Depots: 20
+- No. Old Hubs: 5
+- No. New Hubs: 50
+- No. Vehicle Types: 4
 Optimal Objective Value: 103.1
 
 ## Instance 3
 Instance description:
--No. Suppliers: 7
--No. Depots: 200
--No. Old Hubs: 6
--No. New Hubs: 48
--No. Vehicle Types: 3
+- No. Suppliers: 7
+- No. Depots: 200
+- No. Old Hubs: 6
+- No. New Hubs: 48
+- No. Vehicle Types: 3
 Optimal Objective Value: 73.7
 
 We provide code for using selection hyperheuristics to solve a 2-echalon Location-Routing problem with different hubs. Please cite the following paper if you used any of these resources:
@@ -67,12 +70,12 @@ This file is used to simulate instances of this specific Location-routing proble
     instance_generation(seed,osm_file, sup_range,dep_range, oh_range,nh_range, pt_range,vt_range,instype,distype,key="") 
     
 generates one instance with given ranges for size. Ranges are given in list format. 
--sup_range= number of supplier range
--dep_range= number of depot range
--oh_range= number of old hub range
--nh_range= number of new hub range
--pt_range= number of product type range
--vt_range= number of vehicle type range
+- sup_range= number of supplier range
+- dep_range= number of depot range
+- oh_range= number of old hub range
+- nh_range= number of new hub range
+- pt_range= number of product type range
+- vt_range= number of vehicle type range
 Instype 
 - if equal 1: creates instances where demands are less then supplier capacities and vehicle capcity chosen from 3 options
 - if equal 2: creates instances where demands are less then supplier capacities and vehicle capcity chosen from intergers in range
