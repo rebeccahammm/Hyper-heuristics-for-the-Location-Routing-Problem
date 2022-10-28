@@ -43,7 +43,8 @@ Instance description:
 - No. Old Hubs: 53
 - No. New Hubs: 57
 - No. Vehicle Types: 1
-Optimal Objective Value: 159.7
+ 
+Best Found Objective Value: 383.8
 
 ## Instance 5: "msinstance3.json"
 Instance description:
@@ -52,7 +53,7 @@ Instance description:
 - No. Old Hubs: 5
 - No. New Hubs: 50
 - No. Vehicle Types: 4
-Optimal Objective Value: 103.1
+Best Found Objective Value: 5016.1
 
 ## Instance 6: "biginstance3.json"
 Instance description:
@@ -61,7 +62,7 @@ Instance description:
 - No. Old Hubs: 6
 - No. New Hubs: 48
 - No. Vehicle Types: 3
-Optimal Objective Value: 73.7
+Best Found Objective Value: 136018.5
 
 We provide code for using selection hyperheuristics to solve a 2-echalon Location-Routing problem with different hubs. Please cite the following paper if you used any of these resources:
 
