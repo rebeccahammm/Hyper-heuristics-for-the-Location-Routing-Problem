@@ -34,6 +34,8 @@ Instance description:
 - No. Vehicle Types: 1
 Optimal Objective Value: 73.7
 
+![Ins2](Ins3solution.png  "instance 2")
+
 ## Instance 4: "instance3.json"
 Instance description:
 - No. Suppliers: 56
