@@ -1,4 +1,60 @@
 # Selection-Hyper-heuristics-for-Solving-the-Location-Routing-Problem-with-Different-Hubs
+We provide the instances used from the problem described here: In production.
+
+## Instance 1
+Instance description:
+-No. Suppliers: 3
+-No. Depots: 5
+-No. Old Hubs: 1
+-No. New Hubs: 1
+-No. Vehicle Types: 1
+Optimal Objective Value: 159.7
+
+## Instance 2
+Instance description:
+-No. Suppliers: 5
+-No. Depots: 3
+-No. Old Hubs: 1
+-No. New Hubs: 2
+-No. Vehicle Types: 1
+Optimal Objective Value: 103.1
+
+## Instance 3
+Instance description:
+-No. Suppliers: 6
+-No. Depots: 34
+-No. Old Hubs: 17
+-No. New Hubs: 15
+-No. Vehicle Types: 1
+Optimal Objective Value: 73.7
+
+## Instance 4
+Instance description:
+-No. Suppliers: 56
+-No. Depots: 54
+-No. Old Hubs: 53
+-No. New Hubs: 57
+-No. Vehicle Types: 1
+Optimal Objective Value: 159.7
+
+## Instance 2
+Instance description:
+-No. Suppliers: 6
+-No. Depots: 20
+-No. Old Hubs: 5
+-No. New Hubs: 50
+-No. Vehicle Types: 4
+Optimal Objective Value: 103.1
+
+## Instance 3
+Instance description:
+-No. Suppliers: 7
+-No. Depots: 200
+-No. Old Hubs: 6
+-No. New Hubs: 48
+-No. Vehicle Types: 3
+Optimal Objective Value: 73.7
+
 We provide code for using selection hyperheuristics to solve a 2-echalon Location-Routing problem with different hubs. Please cite the following paper if you used any of these resources:
 
 ## simulating_data.py- 
