@@ -1,7 +1,7 @@
 # Selection-Hyper-heuristics-for-Solving-the-Location-Routing-Problem-with-Different-Hubs
 We provide the instances used from the problem described here: In production.
 
-## Instance 1
+## Instance 1: "instance0.json"
 Instance description:
 - No. Suppliers: 3
 - No. Depots: 5
@@ -12,7 +12,8 @@ Instance description:
 Optimal Objective Value: 159.7
 
 ![Ins1](Ins1solution.png   "Employee Data title")
-## Instance 2
+
+## Instance 2: "instance1.json"
 Instance description:
 - No. Suppliers: 5
 - No. Depots: 3
@@ -22,7 +23,9 @@ Instance description:
 
 Optimal Objective Value: 103.1
 
-## Instance 3
+![Ins2](Ins2solution.png "instance 2")
+
+## Instance 3: "instance.json"
 Instance description:
 - No. Suppliers: 6
 - No. Depots: 34
