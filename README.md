@@ -34,7 +34,7 @@ Instance description:
 - No. Vehicle Types: 1
 Optimal Objective Value: 73.7
 
-## Instance 4
+## Instance 4: "instance3.json"
 Instance description:
 - No. Suppliers: 56
 - No. Depots: 54
@@ -43,7 +43,7 @@ Instance description:
 - No. Vehicle Types: 1
 Optimal Objective Value: 159.7
 
-## Instance 2
+## Instance 5: "msinstance3.json"
 Instance description:
 - No. Suppliers: 6
 - No. Depots: 20
@@ -52,7 +52,7 @@ Instance description:
 - No. Vehicle Types: 4
 Optimal Objective Value: 103.1
 
-## Instance 3
+## Instance 6: "biginstance3.json"
 Instance description:
 - No. Suppliers: 7
 - No. Depots: 200
