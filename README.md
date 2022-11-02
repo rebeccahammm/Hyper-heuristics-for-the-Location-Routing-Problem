@@ -34,7 +34,7 @@ Instance description:
 - No. Vehicle Types: 1
 Optimal Objective Value: 73.7
 
-![Ins2](Ins3solution.png  "instance 2")
+![Ins3](Ins3solution.png  "instance 3")
 
 ## Instance 4:
 Instance description:
@@ -46,7 +46,7 @@ Instance description:
  
 Best Known Objective Value: 383.8
 
-![Ins2](Ins3solution.png  "instance 2")
+![Ins4](Ins4solution.png  "instance 4")
 
 ## Instance 5: 
 Instance description:
