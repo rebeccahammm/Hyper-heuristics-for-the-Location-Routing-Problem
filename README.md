@@ -46,6 +46,8 @@ Instance description:
  
 Best Known Objective Value: 383.8
 
+![Ins2](Ins3solution.png  "instance 2")
+
 ## Instance 5: 
 Instance description:
 - No. Suppliers: 6
@@ -63,6 +65,8 @@ Instance description:
 - No. New Hubs: 48
 - No. Vehicle Types: 3
 Best Known Objective Value: 136018.5
+
+![Ins2](Ins3solution.png  "instance 2")
 
 We provide code for using selection hyperheuristics to solve a 2-echalon Location-Routing problem with different hubs. Please cite the following paper if you used any of these resources:
 
