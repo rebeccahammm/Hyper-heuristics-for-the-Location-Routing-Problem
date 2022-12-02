@@ -129,7 +129,7 @@ def supplier_capacity_generation_1(num_suppliers, num_product_types, product_typ
                 "id": "C"+str(index),
                 "product": product_types[j]['id'],
                 "supplier": suppliers[i]['id'],
-                "quantity": int(normal(100, 5, size=None)*binomial(1, 0.85, size=None))})
+                "quantity": max(0,int(normal(100, 5, size=None)*binomial(1, 0.85, size=None)))})
     return supplier_capacity
 
 
@@ -145,7 +145,7 @@ def supplier_capacity_generation_2(num_suppliers, num_product_types, product_typ
                 "id": "C"+str(index),
                 "product": product_types[j]['id'],
                 "supplier": suppliers[i]['id'],
-                "quantity": int(normal(15, 5, size=None))})
+                "quantity": max(0,int(normal(15, 5, size=None)))})
     return supplier_capacity
 
 #generates demand
@@ -162,7 +162,7 @@ def demand_generation_1(num_depots, num_product_types, product_types, depots):
                 "id": "De"+str(index),
                 "product": product_types[j]['id'],
                 "depot": depots[i]['id'],
-                "quantity": int(normal(15, 5, size=None)*binomial(1, 0.85, size=None))})
+                "quantity": max(0,int(normal(15, 5, size=None)*binomial(1, 0.85, size=None)))})
     return demand
 
 def demand_generation_2(num_depots, num_product_types, product_types, depots):
@@ -176,7 +176,7 @@ def demand_generation_2(num_depots, num_product_types, product_types, depots):
                 "id": "De"+str(index),
                 "product": product_types[j]['id'],
                 "depot": depots[i]['id'],
-                "quantity": int(normal(45, 5, size=None))})
+                "quantity": max(0,int(normal(45, 5, size=None)))})
     return demand
 
 #generates vehicle types and there capacity
