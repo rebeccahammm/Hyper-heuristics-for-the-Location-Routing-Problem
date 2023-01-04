@@ -328,12 +328,7 @@ class Problem():
         if facilityID1[1]=="H" and facilityID2[1]=="H":
             sys.exit(print("Hub 2 error",facilityID1,facilityID2))
         if facilityID1[1]=="H":
-            ID2=self.getHubINDEX(facilityID1)+self.getNOsuppliers()+self.getNODepot()
-            if facilityID2[0]=="S":
-                ID1=self.getSupplierINDEX(facilityID2)
-            if facilityID2[0]=="D":
-                ID1=self.getDepotINDEX(facilityID2)+self.getNOsuppliers()
-            return self.__distances[ID1,ID2]
+            ID1=self.getHubINDEX(facilityID1)+self.getNOsuppliers()+self.getNODepot()
         if facilityID1[0]=="S":
             ID1=self.getSupplierINDEX(facilityID1)
         if facilityID1[0]=="D":
@@ -351,12 +346,7 @@ class Problem():
         if facilityID1[1]=="H" and facilityID2[1]=="H":
             sys.exit(print("Hub 3 error"))
         if facilityID1[1]=="H":
-            ID2=self.getHubINDEX(facilityID1)+self.getNOsuppliers()+self.getNODepot()
-            if facilityID2[0]=="S":
-                ID1=self.getSupplierINDEX(facilityID2)
-            if facilityID2[0]=="D":
-                ID1=self.getDepotINDEX(facilityID2)+self.getNOsuppliers()
-            return self.__times[ID1,ID2]
+            ID1=self.getHubINDEX(facilityID1)+self.getNOsuppliers()+self.getNODepot()
         if facilityID1[0]=="S":
             ID1=self.getSupplierINDEX(facilityID1)
         if facilityID1[0]=="D":
