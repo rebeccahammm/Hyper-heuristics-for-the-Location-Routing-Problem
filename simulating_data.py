@@ -235,11 +235,11 @@ def distances_time_1(key,suppliers, depots, oldhubs, newhubs):
     apikey=key
     depart= datetime(2022, 7, 13,12,0,0)
     gmaps=googlemaps.Client(key=apikey)
-    for i in range(len(suppliers_depots_lat)):
+    for i in range(len(all_facilities_lat)):
         disti=[]
         timei=[]
         for j in range(len(all_facilities_lat)):
-            origin= (suppliers_depots_lat[i], suppliers_depots_lon[i])
+            origin= (all_facilities_lat[i], all_facilities_lon[i])
             destination = (all_facilities_lat[j], all_facilities_lon[j])
             if origin==destination:
                 disti.append(0)
@@ -271,7 +271,7 @@ def distances_time_2(ids,edges,suppliers, depots, oldhubs, newhubs):
     for i in newhubs:
         all_indexes.append(i["index"])  
     distances=[]
-    for i in sup_and_dept_indexes:
+    for i in all_indexes:
         distances.append(p.shortest_path_lengths([i for x in range(len(all_indexes))],all_indexes))
     times=[]
     for i in range(len(sup_and_dept_indexes)):
