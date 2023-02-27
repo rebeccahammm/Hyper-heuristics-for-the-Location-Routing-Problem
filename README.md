@@ -1,7 +1,7 @@
 # Selection-Hyper-heuristics-for-Solving-the-Location-Routing-Problem-with-Different-Hubs
 We provide the instances used from the problem described here: In production.
 
-## Instance 1: 
+## HaK-n10: 
 Instance description:
 - No. Suppliers: 3
 - No. Depots: 5
@@ -13,7 +13,7 @@ Optimal Objective Value: 159.7
 
 ![Ins1](Ins1solution.png   "instance 1")
 
-## Instance 2:
+## HaK-n11:
 Instance description:
 - No. Suppliers: 5
 - No. Depots: 3
@@ -25,7 +25,7 @@ Optimal Objective Value: 103.1
 
 ![Ins2](Ins2solution.png "instance 2")
 
-## Instance 3: 
+## HaK-n72: 
 Instance description:
 - No. Suppliers: 6
 - No. Depots: 34
@@ -36,7 +36,7 @@ Optimal Objective Value: 73.7
 
 ![Ins3](Ins3solution.png  "instance 3")
 
-## Instance 4:
+## HaK-n220:
 Instance description:
 - No. Suppliers: 56
 - No. Depots: 54
@@ -48,7 +48,7 @@ Best Known Objective Value: 383.8
 
 ![Ins4](Ins4solution.png  "instance 4")
 
-## Instance 5: 
+## HaK-n51: 
 Instance description:
 - No. Suppliers: 6
 - No. Depots: 20
@@ -59,7 +59,7 @@ Best Known Objective Value: 5016.1
 
 ![Ins5](Ins5solution.png  "instance 5")
 
-## Instance 6: "biginstance3.json"
+## HaK-n261: 
 Instance description:
 - No. Suppliers: 7
 - No. Depots: 200
