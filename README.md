@@ -46,7 +46,7 @@ Instance description:
  
 Best Known Objective Value: 383.8
 
-![Ins4](Ins4solution.png  "instance 4")
+![Ins4](HaK-n220.png  "instance 4")
 
 ## HaK-n51: 
 Instance description:
