@@ -57,7 +57,7 @@ Instance description:
 - No. Vehicle Types: 4
 Best Known Objective Value: 5016.1
 
-![Ins5](Ins5solution.png  "instance 5")
+![Ins5](HaK-n51.png  "instance 5")
 
 ## HaK-n261: 
 Instance description:
