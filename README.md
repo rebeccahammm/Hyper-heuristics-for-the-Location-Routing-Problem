@@ -68,7 +68,7 @@ Instance description:
 - No. Vehicle Types: 3
 Best Known Objective Value: 136018.5
 
-![Ins6](Ins6solution.png  "instance 6")
+![Ins6](HaK-n261_solution.png  "instance 6")
 
 We provide code for using selection hyperheuristics to solve a 2-echalon Location-Routing problem with different hubs. Please cite the following paper if you used any of these resources:
 
