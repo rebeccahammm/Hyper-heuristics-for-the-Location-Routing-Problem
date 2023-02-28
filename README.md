@@ -23,7 +23,7 @@ Instance description:
 
 Optimal Objective Value: 103.1
 
-![Ins2](Ins2solution.png "instance 2")
+![Ins2](HaK-n11_solution.png "instance 2")
 
 ## HaK-n72: 
 Instance description:
