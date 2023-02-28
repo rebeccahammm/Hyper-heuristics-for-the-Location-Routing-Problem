@@ -34,7 +34,7 @@ Instance description:
 - No. Vehicle Types: 1
 Optimal Objective Value: 73.7
 
-![Ins3](Ins3solution.png  "instance 3")
+![Ins3](HaK-n72.png  "instance 3")
 
 ## HaK-n220:
 Instance description:
